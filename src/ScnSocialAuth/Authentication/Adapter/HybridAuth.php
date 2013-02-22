@@ -118,7 +118,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
                 $result = $this->insert($localUser, 'other', $userProfile);
             }
             $localUserProvider = clone($this->getMapper()->getEntityPrototype());
-            $localUserProvider->setUserId($localUser->getId())
+            $localUserProvider->setUser($localUser)
                 ->setProviderId($userProfile->identifier)
                 ->setProvider($provider);
             $this->getMapper()->insert($localUserProvider);
