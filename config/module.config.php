@@ -76,6 +76,9 @@ return array(
                                     ),
                                 ),
                             ),
+                            'query' => array(
+                                'type' => 'Query',
+                            ),
                         ),
                     ),
                     'logout' => array(
@@ -139,6 +142,9 @@ return array(
     'view_helpers' => array(
         'invokables' => array(
             'socialSignInButton' => 'ScnSocialAuth\View\Helper\SocialSignInButton',
+        ),
+        'factories' => array(
+            'scnUserProvider'   => 'ScnSocialAuth\Service\UserProviderViewHelperFactory',
         ),
     ),
     'view_manager' => array(
