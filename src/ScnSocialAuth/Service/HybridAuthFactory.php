@@ -11,6 +11,7 @@ namespace ScnSocialAuth\Service;
 use Hybrid_Auth;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use Zend\Console\Request as ConsoleRequest;
 
 /**
  * @category   ScnSocialAuth
@@ -101,6 +102,7 @@ class HybridAuthFactory implements FactoryInterface
     {
         $router = $services->get('Router');
         $request = $services->get('Request');
+        if ($request instanceof ConsoleRequest) return;
         if (!$router->getRequestUri() && method_exists($request, 'getUri')) {
             $router->setRequestUri($request->getUri());
         }
